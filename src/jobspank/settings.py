@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g&cqro6vfq)dc&&1q$1au3zthtp&*-*1my20ddo(8d%=j8)8)&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -68,7 +68,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'jobspank.wsgi.application'
+WSGI_APPLICATION = 'jobspank.wsgi.app'
 
 
 # Database
