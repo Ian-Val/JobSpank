@@ -1,18 +1,26 @@
 {% extends 'global/base.html' %}
 
 {% block content %}
-    <h1>Welcome to the Landing Page</h1>
-    <form id="leadForm" method="post">
-        {% csrf_token %}
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-        {% if form.errors.email %}
-        <span style="color: red;">{{ form.errors.email }}</span>
-        {% endif %}
-        <br>
-        <button type="submit">Submit</button>
-    </form>
-
+    <div>
+        <h2>We are building an online tool to help you apply to your first job.</h2>
+        <nav>
+            <a href="#">Resume Generator</a>
+            <a href="#">Job Application Tracker</a>
+            <a href="#">Online Resources</a>
+        </nav>
+    </div>
+    <div>
+        <form id="leadForm" method="post">
+            {% csrf_token %}
+            <label for="email">Enter your email to gain early access.</label>
+            <input type="email" id="email" name="email" placeholder="your email here..." required>
+            {% if form.errors.email %}
+            <span style="color: red;">{{ form.errors.email }}</span>
+            {% endif %}
+            <br>
+            <button type="submit">Join Waitlist</button>
+        </form>
+    </div>
     <script>
         document.getElementById('leadForm').addEventListener('submit', function(event) {
             var email = document.getElementById('email').value;
