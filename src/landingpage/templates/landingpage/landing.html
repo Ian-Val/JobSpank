@@ -2,11 +2,11 @@
 
 {% block content %}
     <div>
-        <h2>We are building an online tool to help you apply to your first job.</h2>
+        <h2>Productivity tools to help with your entry-level job search.</h2>
         <nav>
-            <a href="#">Resume Generator</a>
-            <a href="#">Job Application Tracker</a>
-            <a href="#">Online Resources</a>
+            <a href="{% url 'app_tracker' %}">Job Application Tracker</a>
+            <a href="{% url 'resumegen' %}">Resume Generator</a>
+            <a href="{% url 'resources' %}">Online Resources</a>
         </nav>
     </div>
     <div>

@@ -6,7 +6,7 @@
 
 a {
     text-decoration: none;
-    font-weight: 400;
+    /* font-weight: 400; */
 }
 
 main {
@@ -136,4 +136,29 @@ button[type=submit]:hover {
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.233);
     transition: all 0.4s;
     z-index: 100;
+}
+
+div.table-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: #FF6C06;
+    justify-items: start;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.table-header > .cells {
+    color: white
+}
+
+div.cells {
+    text-align: left;
+    padding: 10px;
+    font-size: 1rem;
+    color: #666666;
+    border-radius: 10px;
+    height: 2.5rem;
+    display: grid;
+    align-items: center;
+    justify-items: start;
 }

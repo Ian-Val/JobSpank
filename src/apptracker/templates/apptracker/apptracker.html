@@ -1,0 +1,19 @@
+{% extends 'global/base.html' %}
+
+{% block content %}
+<h2>Job Application Tracker</h2>
+<div class="table-header">
+    <div class="cells">Company</div>
+    <div class="cells">Position</div>
+    <div class="cells">Location</div>
+    <div class="cells">Pay</div>
+    <div class="cells">Status</div>
+</div>
+<div id="table-body">
+
+</div>
+<script>
+    const tableBodyEl = document.getElementById("table-body")
+    console.log(localStorage.getItem("jobspank-tracker"))
+</script>
+{% endblock content %}
