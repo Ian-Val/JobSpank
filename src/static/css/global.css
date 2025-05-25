@@ -45,6 +45,9 @@ header {
     margin: 0rem 0rem;
     padding-bottom: 0px;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: #FF6C06; */
 }
 
 body {
@@ -138,6 +141,49 @@ button[type=submit]:hover {
     z-index: 100;
 }
 
+button:hover {
+    cursor: pointer;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    font-size: 1rem;
+    color: #555;
+    height: 2.5rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-btn {
+    position:absolute;
+    right: 43px;
+}
+
+.btn {
+    width: 100%;
+    margin-top: 5px;
+}
+
+#add-man {
+    margin-right: 5px;
+}
+
+#add-url {
+    margin-left: 5px;
+}
+.btn:hover {
+    cursor: pointer;
+    background-color: #fbfbfb;
+    transition: background-color .2s;
+    outline: 2px solid #959595;
+}
+
 div.table-header {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -151,6 +197,16 @@ div.table-header {
     color: white
 }
 
+.table-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    background-color: white;
+    margin: 10px 0px;
+    border-radius: 10px;
+    min-height: 2.5rem;
+    /* min-height: 46px; */
+}
+
 div.cells {
     text-align: left;
     padding: 10px;
@@ -161,4 +217,58 @@ div.cells {
     display: grid;
     align-items: center;
     justify-items: start;
+}
+
+.cells {
+    text-align: left;
+    padding: 10px;
+    font-size: 1rem;
+    color: #666666;
+    border-radius: 10px;
+    height: 2.5rem;
+    display: grid;
+    align-items: center;
+    justify-items: start;
+}
+
+.cells > select {
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 0px;
+    /* padding: 5px; */
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: #666666;
+}
+
+.cells:focus {
+    color: #666666;
+    cursor: text;
+    border-radius: 10px;
+    outline: 2px solid #959595;
+    background-color: #fbfbfb;
+    transition: background-color .2s;
+}
+
+select {
+    /* background-color: red; */
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    margin: 0px;
+    /* padding: 5px; */
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    color: #666666;
+}
+
+.select-cells {
+    /* background-color: red; */
+    padding: 10px ;
+    padding-right: 15px;
+    margin: 0px;
 }

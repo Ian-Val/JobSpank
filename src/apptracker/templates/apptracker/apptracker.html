@@ -2,6 +2,7 @@
 
 {% block content %}
 <h2>Job Application Tracker</h2>
+
 <div class="table-header">
     <div class="cells">Company</div>
     <div class="cells">Position</div>
@@ -10,10 +11,10 @@
     <div class="cells">Status</div>
 </div>
 <div id="table-body">
-
+    <div class="btn-container">
+        <button class="btn btn-primary" id="add-man"type="button">Add Manually</button>
+        <button class="btn btn-primary" id="add-url"type="button">Add From URL</button>
+    </div>
 </div>
-<script>
-    const tableBodyEl = document.getElementById("table-body")
-    console.log(localStorage.getItem("jobspank-tracker"))
-</script>
+
 {% endblock content %}
