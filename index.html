@@ -320,7 +320,20 @@
                 urlEl.dataset.row = i;
                 urlEl.dataset.key = "Url";
                 urlEl.classList.add("side-container")
-                urlEl.innerHTML = `<div class="side-label">Link: </div> <div data-row="${i}" data-key="Url" class="editable-cell" contenteditable="true">${data[i].Url}</div>`
+                urlEl.innerHTML = `<div class="side-label"><a href="${data[i].Url}">Job Posting Link:</a> </div> <div data-row="${i}" data-key="Url" class="editable-cell" contenteditable="true">${data[i].Url}</div>`
+
+                //CUSTOM RESUME
+                const resumeLinkEl = document.createElement("div")
+                resumeLinkEl.dataset.row = i;
+                resumeLinkEl.dataset.key = "ResumeUrl";
+                resumeLinkEl.classList.add("side-container")
+                resumeLinkEl.innerHTML = `<div class="side-label"><a href="${data[i].Resume}">Resume Link:</a> </div> <div data-row="${i}" data-key="Resume" class="editable-cell" contenteditable="true">${data[i].Resume}</div>`
+                //CUSTOM COVER LETTER
+                const coverLetterLinkEl = document.createElement("div")
+                coverLetterLinkEl.dataset.row = i;
+                coverLetterLinkEl.dataset.key = "CoverLetterUrl";
+                coverLetterLinkEl.classList.add("side-container")
+                coverLetterLinkEl.innerHTML = `<div class="side-label"><a href="${data[i].CoverLetter}">Cover Letter Link:</a> </div> <div data-row="${i}" data-key="CoverLetter" class="editable-cell" contenteditable="true">${data[i].CoverLetter}</div>`
 
 
                 //NOTES INPUT
@@ -341,6 +354,8 @@
                 newData.appendChild(deleteButton)
                 newData.appendChild(notesEl)
                 newData.appendChild(urlEl)
+                newData.appendChild(resumeLinkEl)
+                newData.appendChild(coverLetterLinkEl)
                 
                 rowContainer.addEventListener("mouseover", () => {
                     newData.style.maxHeight = "100vh"
@@ -361,6 +376,8 @@
             );
             newRowData.Url = ""
             newRowData.Notes = ""
+            newRowData.Resume = ""
+            newRowData.CoverLetter = ""
             const today = new Date();
             const formattedDate = today.toISOString().split('T')[0];
             newRowData["Date Applied"] = formattedDate
