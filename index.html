@@ -189,8 +189,8 @@
     <h1>Job Application Tracker</h1>
     <table>
         <div class="table-header">
-                <div class="input-header">Company</div>
                 <div class="input-header">Position</div>
+                <div class="input-header">Company</div>
                 <div class="input-header">Location</div>
                 <div class="input-header">Salary</div>
                 <div class="input-header">Date Applied</div>
@@ -274,7 +274,7 @@
                         `;
                         newCell.value = datum[key] || "inactive";  // set selected value
                     }
-                    else if (key.includes("Company")) {
+                    else if (key.includes("Position")) {
                         newCell = document.createElement("a");
                         newCell.setAttribute("href", datum["Url"]);
                         newCell.textContent = datum[key];
@@ -286,8 +286,9 @@
                         })
                         newCell.addEventListener("dblclick", (e) => {
                             e.preventDefault()
-                            if (url) {
+                            if (datum["Url"]) {
                                 window.open(datum["Url"], target="_blank")
+                                console.log("open sesame")
                             }
                         })
                         newCell.addEventListener("blur", (e) => {
