@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobSpank</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: "Instrument Sans", sans-serif;
+            color: #222;
+            font-size: 16px;
+        }
+        body {
+            /*padding: 80px 100px ;*/
+            background-color: #F1F1F1;
+        }
+        a.main-link {
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: 200;
+        }
+        h1 {
+            font-size: 64px;
+            font-weight: 200;
+        }
+        div.table-header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            background-color: #FF6C06;
+            border-radius: 10px;
+        }
+        div.input-header { 
+            width: 100%;
+            min-height: 2rem;
+            display: grid;
+            align-items: center;
+            padding: 10px;
+            color: white;
+        }
+        div.row-container {
+            margin: 10px 0px;
+            background-color: white;
+            border-radius: 10px;
+        }
+        div.editable-row{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        div.editable-cell ,  input.editable-cell, select.editable-cell, a.editable-cell {
+            /* background-color: white; */
+            width: 100%;
+            min-width: 10px;
+            min-height: 2rem;
+            display: grid;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+            border: none;
+            margin: 5px;
+        }
+        #add-row-btn {
+            /* height: 100%; */
+            background-color: #FF6C06;
+            color: white;
+        }
+        #add-url-container {
+            display: flex;
+            /* background-color: orange; */
+        }
+        #add-url-container > label {
+            display: grid;
+            align-items: center;
+            margin-left: 10px;
+        }
+        #add-url-container > input {
+            display: grid;
+            align-items: center;
+            border: none;
+            outline: none;
+            border-radius: 10px;
+            width: 100%;
+            margin: 0px 10px ;
+        }
+        h2 {
+            font-size: 32px;
+            font-weight: 200;
+        }
+        div.search-container {
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+        }
+        div.search-container > a {
+            height: 2rem;
+            display: block
+        }
+
+        div.search-container > button {
+            background-color: #FF6C06;
+            color: white;
+
+        }
+        input.search-bar {
+            border: none;
+            height: 2rem;
+            border-radius: 10px;
+            width: 100%;
+        }
+        .editable-cell:hover {
+            outline: #ddd 1px solid;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+        .editable-cell:focus {
+            outline: #222 1px solid;
+        }
+        select {
+            width: 100%;
+        }
+        div.editable-data {
+            max-height: 0px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column-reverse;
+            transition: all .5s;
+        }
+        button {
+            min-height: 2rem;
+            min-width: 5rem;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            background-color: white;
+        }
+        div.side-container {
+            display: flex;
+            margin: 10px 0px;
+            padding: 10px;
+            align-items: center;
+        }
+        div.side-label {
+            min-width: 60px;
+            /* background-color: #FF6C06; */
+            display: grid;
+
+        }
+        button.delete-btn {
+            width: 100px;
+            margin-left: auto;
+            background-color: #ddd;
+            color: #222;
+            margin-bottom: 5px;
+            margin-right: 5px;
+        }
+        a.editable-cell {
+            display: flex;
+        }
+        
+        span.edit-btn {
+            background-color: red;
+            height: 100%;
+            width: 100%;
+        }
+        span.edit-btn:hover {
+            cursor:text;
+        }
+        footer {
+            display: flex;
+            /* background-color: bisque; */
+            width: 100%;
+            justify-content: flex-end;
+        }
+        footer > p, footer a {
+            color: #666;
+            margin: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Job Application Tracker</h1>
+    <table>
+        <div class="table-header">
+                <div class="input-header">Company</div>
+                <div class="input-header">Position</div>
+                <div class="input-header">Location</div>
+                <div class="input-header">Salary</div>
+                <div class="input-header">Date Applied</div>
+                <div class="input-header">Status</div>
+        </div>
+        <div class="table-body">
+
+        </div> 
+    </table>
+    
+    <div id="add-url-container">
+        <!-- <label for="url-input"> URL: </label>
+        <input name="url-input" id="url-input" type="text" class="url-input"> -->
+        <button class="add-row-btn" id="add-row-btn" type="button">Add Row</button>
+    </div>
+    <h2>Find Jobs</h2>
+    <div class="search-container">
+        <a href="https://www.linkedin.com/">LinkedIn</a>
+        <a href="https://www.indeed.com/">Indeed</a>
+        <a href="https://www.careerbuilder.com/">CareerBuilder</a>
+        <a href="https://www.ziprecruiter.com/Search-Jobs-Near-Me">ZipRecruiter</a>
+        <a href="https://www.glassdoor.com/">Glassdoor</a>
+        <a href="https://www.monster.com/">Monster</a>
+        <a href="https://www.simplyhired.com/">SimplyHired</a>
+        <a href="https://www.snagajob.com/">Snagajob</a>
+        
+    </div>
+    <div class="search-results">
+
+    </div>
+    <hr>
+    <footer>
+        <p><a href="https://buy.stripe.com/28E5kEe9q6Hd1GraaCgQE01">Buy Us Coffee</a></p>
+        <p><a href="https://www.linkedin.com/company/106566481">Follow Us On LinkedIn</a></p>
+        <p>&copy; 2025 Jobspank LLC</p>
+    </footer>
+    
+    
+    <!-- <button id="clear-storage-btn" type="button">Clear Rows</button> -->
+    <script>
+        let data = []
+        const DATA_NAME = "jobspank-job-tracker"
+        const tbodyEl = document.querySelector(".table-body")
+        const addRowBtnEl = document.getElementById("add-row-btn")
+        // const clearBtnEl = document.getElementById("clear-storage-btn")
+        const headerEls = document.querySelectorAll(".input-header")
+        if (localStorage.getItem(DATA_NAME)) {
+            data = JSON.parse(localStorage.getItem(DATA_NAME))
+            console.log(data)
+        } else {
+            addRow()
+        }
+        //RENDER DATA
+        function render_data () {
+            tbodyEl.innerHTML = ""
+            data.forEach((datum, i) => {
+                const rowContainer = document.createElement("div")
+                rowContainer.dataset.row = i;
+                rowContainer.classList.add("row-container")
+                //DATA COLUMNS
+                const newRow = document.createElement("div")
+                newRow.dataset.row = i;
+                newRow.classList.add("editable-row")
+                headerEls.forEach((el, j) => {
+                    const key = Array.from(headerEls).map(el => el.textContent.trim())[j]
+                    let newCell;
+                    
+                    if (key.includes("Date")) {
+                        newCell = document.createElement("input");
+                        newCell.type = "date";
+                        newCell.value = datum[key] || "";  // set value for date input
+                    } 
+                    else if (key.includes("Status")) {
+                        newCell = document.createElement("select");
+                        newCell.innerHTML = `
+                            <option value="inactive">Inactive</option>
+                            <option value="applied">Applied</option>
+                            <option value="interviewed">Interviewed</option>
+                            <option value="offered">Offered</option>
+                        `;
+                        newCell.value = datum[key] || "inactive";  // set selected value
+                    }
+                    else if (key.includes("Company")) {
+                        newCell = document.createElement("a");
+                        newCell.setAttribute("href", datum["Url"]);
+                        newCell.textContent = datum[key];
+                        newCell.addEventListener("click", (e) => {
+                            e.preventDefault()
+                            newCell.setAttribute("contenteditable", "true");
+                            newCell.focus()
+                            // window.open(datum["Url"], target="_blank")
+                        })
+                        newCell.addEventListener("dblclick", (e) => {
+                            e.preventDefault()
+                            if (url) {
+                                window.open(datum["Url"], target="_blank")
+                            }
+                        })
+                        newCell.addEventListener("blur", (e) => {
+                            e.preventDefault()
+                            newCell.setAttribute("contenteditable", "false");
+                        })
+                    }                    
+                    else {
+                        newCell = document.createElement("div");
+                        newCell.setAttribute("contenteditable", "true");
+                        newCell.textContent = datum[key];
+                    }
+
+                    newCell.dataset.row = i;
+                    newCell.dataset.key = key;
+                    newCell.classList.add("editable-cell");
+
+                    newRow.appendChild(newCell);
+                });
+
+                //EXTRA CONTAINER
+                const newData = document.createElement("div")
+
+                newData.dataset.row = i;
+                newData.classList.add("editable-data")
+
+                //URL INPUT
+                const urlEl = document.createElement("div")
+                urlEl.dataset.row = i;
+                urlEl.dataset.key = "Url";
+                urlEl.classList.add("side-container")
+                urlEl.innerHTML = `<div class="side-label">Link: </div> <div data-row="${i}" data-key="Url" class="editable-cell" contenteditable="true">${data[i].Url}</div>`
+
+
+                //NOTES INPUT
+                const notesEl = document.createElement("div")
+                notesEl.dataset.row = i;
+                notesEl.dataset.key = "Notes";
+                notesEl.classList.add("side-container")
+                notesEl.innerHTML = `<div class="side-label">Notes: </div> <div data-row="${i}" data-key="Notes" class="editable-cell" contenteditable="true">${data[i].Notes}</div>`
+
+                //DELETE BUTTON
+                const deleteButton = document.createElement("button")
+                deleteButton.dataset.row = i;
+                deleteButton.textContent = "Delete"
+                deleteButton.classList.add("delete-btn")
+                deleteButton.addEventListener("click", () => {
+                    delete_row(i)
+                })
+                newData.appendChild(deleteButton)
+                newData.appendChild(notesEl)
+                newData.appendChild(urlEl)
+                
+                rowContainer.addEventListener("mouseover", () => {
+                    newData.style.maxHeight = "100vh"
+                })
+                rowContainer.addEventListener("mouseleave", () => {
+                    newData.style.maxHeight = "0px"
+                })
+                rowContainer.appendChild(newRow)
+                rowContainer.appendChild(newData)
+                tbodyEl.appendChild(rowContainer)
+            })
+        }
+        render_data()
+        function addRow ()  {
+            // console.log("yeeoo")
+            const newRowData = Object.fromEntries(
+                Array.from(headerEls).map(el => [el.textContent.trim(), ""])
+            );
+            newRowData.Url = ""
+            newRowData.Notes = ""
+            const today = new Date();
+            const formattedDate = today.toISOString().split('T')[0];
+            newRowData["Date Applied"] = formattedDate
+            data.push(newRowData)
+            localStorage.setItem(DATA_NAME, JSON.stringify(data))
+            render_data()
+        }
+        
+        //DELETE ROW
+        const delete_row = (i) => {
+            const newData = data.filter((el, j) => j !== i)
+            console.log(newData)
+            data = newData
+            localStorage.setItem(DATA_NAME, JSON.stringify(data));
+            render_data()
+        }
+        
+        //CLEAR STORAGE
+        // clearBtnEl.addEventListener("click", async () => {
+        //     if (data.length === 0) {
+        //         return
+        //     }
+        //     data = []
+        //     await localStorage.setItem(DATA_NAME, JSON.stringify(data))
+        //     console.log(data)
+        //     render_data()
+        // })
+        
+        addRowBtnEl.addEventListener("click", addRow)
+
+        //SAVE DATA
+        document.body.addEventListener("focusout", (event) => {
+            if (event.target.matches(".editable-cell")) {
+                const row = event.target.dataset.row;
+                const key = event.target.dataset.key;
+                let value;
+
+                if (event.target.tagName === "INPUT" || event.target.tagName === "SELECT") {
+                    value = event.target.value;
+                } else {
+                    value = event.target.innerText.trim();
+                    event.target.innerText = value; // Trim visible text
+                }
+
+                console.log(`Save Changes: ${row}, ${key}`);
+                data[row][key] = value;
+                console.log(data);
+
+                localStorage.setItem(DATA_NAME, JSON.stringify(data));
+            }
+        });
+
+    </script>
+</body>
+</html>
