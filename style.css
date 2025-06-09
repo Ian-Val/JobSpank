@@ -1,0 +1,197 @@
+.container {
+    min-width: 400px;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: "Instrument Sans", sans-serif;
+    color: #222;
+    font-size: 16px;
+}
+body {
+    padding: 80px 100px ;
+    background-color: #F1F1F1;
+}
+a.main-link {
+    text-decoration: none;
+    font-size: 32px;
+    font-weight: 200;
+}
+h1 {
+    font-size: 64px;
+    font-weight: 200;
+}
+div.table-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #FF6C06;
+    border-radius: 10px;
+}
+div.input-header { 
+    width: 100%;
+    min-height: 2rem;
+    display: grid;
+    align-items: center;
+    padding: 10px;
+    color: white;
+}
+div.row-container {
+    margin: 10px 0px;
+    background-color: white;
+    border-radius: 10px;
+}
+div.editable-row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+div.editable-cell ,  input.editable-cell, select.editable-cell, a.editable-cell {
+    /* background-color: white; */
+    width: 100%;
+    min-width: 10px;
+    min-height: 2rem;
+    display: grid;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    margin: 5px;
+}
+#add-row-btn {
+    /* height: 100%; */
+    background-color: #FF6C06;
+    color: white;
+}
+#add-url-container {
+    display: flex;
+    /* background-color: orange; */
+}
+#add-url-container > label {
+    display: grid;
+    align-items: center;
+    margin-left: 10px;
+}
+#add-url-container > input {
+    display: grid;
+    align-items: center;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    width: 100%;
+    margin: 0px 10px ;
+}
+h2 {
+    font-size: 32px;
+    font-weight: 200;
+}
+div.search-container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+div.search-container > a {
+    height: 2rem;
+    display: block
+}
+
+div.search-container > button {
+    background-color: #FF6C06;
+    color: white;
+
+}
+input.search-bar {
+    border: none;
+    height: 2rem;
+    border-radius: 10px;
+    width: 100%;
+}
+.editable-cell:hover {
+    outline: #ddd 1px solid;
+}
+button:hover {
+    cursor: pointer;
+}
+.editable-cell:focus {
+    outline: #222 1px solid;
+}
+select {
+    width: 100%;
+}
+div.editable-data {
+    max-height: 0px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+    transition: all .5s;
+}
+button {
+    min-height: 2rem;
+    min-width: 5rem;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background-color: white;
+}
+div.side-container {
+    display: flex;
+    margin: 10px 0px;
+    padding: 10px;
+    align-items: center;
+}
+div.side-label {
+    min-width: 60px;
+    /* background-color: #FF6C06; */
+    display: grid;
+
+}
+button.delete-btn {
+    width: 100px;
+    margin-left: auto;
+    background-color: #ddd;
+    color: #222;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+a.editable-cell {
+    display: flex;
+}
+
+span.edit-btn {
+    background-color: red;
+    height: 100%;
+    width: 100%;
+}
+span.edit-btn:hover {
+    cursor:text;
+}
+footer {
+    display: flex;
+    /* background-color: bisque; */
+    width: 100%;
+    justify-content: flex-end;
+}
+footer > p, footer a {
+    color: #666;
+    margin: 10px;
+}
+
+@media (max-width: 1200px) {
+    button, .side-label>a, div.input-header, div.editable-cell ,  input.editable-cell, select.editable-cell, a.editable-cell {
+        font-size: .85rem;
+    }
+    body {
+        padding: 10px 20px ;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    button, .side-label>a, div.input-header, div.editable-cell ,  input.editable-cell, select.editable-cell, a.editable-cell {
+        font-size: .75rem;
+    }
+    body {
+        padding: 5px 5px ;
+    }
+}
