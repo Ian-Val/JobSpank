@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: "JobSpank",
@@ -13,23 +14,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body style={{ margin: "3rem" }}>
+      <body>
         <header>
-          <a
-            style={{ fontSize: "1.25rem", marginBottom: "2rem" }}
-            href="/">jobspank.org</a>
-          {/* <nav>
-            <a href="/">Home</a>
-            <a href="/about">About</a>
-          </nav> */}
+          <Link className="text-2xl" href="/">jobspank.org</Link>
         </header>
         <main>
           {children}
         </main>
-        <footer>
-          <a href="https://buy.stripe.com/28E5kEe9q6Hd1GraaCgQE01">Support JobSpank</a>
-          <a href="https://www.linkedin.com/company/106566481">Follow Us On LinkedIn</a>
+        <footer className="flex justify-between">
           <p>&copy; 2025 Jobspank LLC</p>
+          <div className="flex gap-4">
+            <a className="underline" href="https://buy.stripe.com/28E5kEe9q6Hd1GraaCgQE01">Fund JobSpank</a>
+            <a className="underline" href="https://www.linkedin.com/company/106566481">LinkedIn</a>
+          </div>
+
           <script type="text/javascript" src="https://cdn.ywxi.net/js/1.js" async></script>
         </footer>
       </body>
