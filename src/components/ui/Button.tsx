@@ -1,5 +1,40 @@
-export default function Button({ children }: { children: React.ReactNode }) {
+import { cn } from "@/utils/cn";
+
+export enum ButtonVariant {
+    PRIMARY = "primary",
+    SECONDARY = "secondary",
+}
+
+type ButtonProps = {
+    children: React.ReactNode
+    onClick?: () => void
+    type?: "button" | "submit" | "reset"
+    variant?: ButtonVariant
+    className?: string
+}
+
+export default function Button({
+    children,
+    onClick,
+    type = "button",
+    variant = ButtonVariant.PRIMARY,
+    className = "",
+}: ButtonProps) {
+    const variants = {
+        [ButtonVariant.PRIMARY]: "bg-accent text-background hover:bg-accent/80",
+        [ButtonVariant.SECONDARY]: "bg-input text-background hover:bg-input/80",
+    }
     return (
-        <button className="hover:cursor-pointer px-4 py-2 mt-1 w-1/4 text-xl rounded-lg bg-accent text-background hover:bg-accent/80 mx-auto" type="submit">{children}</button>
-    );
+        <button
+            type={type}
+            onClick={onClick}
+            className={cn(
+                "px-4 py-2 rounded-md text-xl transition-colors",
+                variants[variant],
+                className
+            )}
+        >
+            {children}
+        </button>
+    )
 }

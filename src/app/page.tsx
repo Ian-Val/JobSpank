@@ -1,24 +1,18 @@
-import Link from 'next/link';
-import Button from "@/components/ui/Button";
+import Heading from '@/components/ui/Heading';
+import Button, { ButtonVariant } from '@/components/ui/Button';
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-4 w-200 mx-auto">
-      <h1 className="text-6xl my-4 w-full">
+    <div className="flex flex-col gap-4 w-180 h-[calc(100vh-24rem)] mx-auto my-24">
+      <Heading>
         We are building productivity tools for your <span className="text-accent">entry-level</span> job search.
-      </h1>
-      <nav className="flex gap-4 justify-between">
-        <Link className="bg-input hover:bg-input/80 border-e-foreground w-1/3 px-4 py-2 text-xl rounded-lg flex items-center justify-center" href="/tracker">Job Application Tracker</Link>
-        <Link className="bg-input hover:bg-input/80 border-e-foreground w-1/3 px-4 py-2 text-xl rounded-lg flex items-center justify-center" href="/resume">Résumé Manager</Link>
-        <Link className="bg-input hover:bg-input/80 border-e-foreground w-1/3 px-4 py-2 text-xl rounded-lg flex items-center justify-center" href="https://discord.gg/KR7WUWdgQQ" target="_blank">
-
-          Join Our Discord
-        </Link>
-      </nav>
-      <form className="flex flex-col gap-4 items-center my-6" action="">
-        <label className="text-3xl" htmlFor="email">Sign up for early access.</label>
-        <input className="px-4 py-2 bg-input hover:bg-input/80 w-1/2 text-xl rounded-lg" id="email" type="email" placeholder="Enter your email" required />
-        <Button>Sign Up</Button>
+      </Heading>
+      <form className="flex flex-col gap-4 items-start my-6" action="">
+        <label className="text-2xl" htmlFor="email">Join our mailing list to recieve updates and exclusive early access.</label>
+        <div className="flex gap-4 w-full">
+          <input className="px-4 py-2 bg-input hover:bg-input/80 w-full text-xl rounded-lg" id="email" type="email" placeholder="Enter your email" required />
+          <Button variant={ButtonVariant.PRIMARY} className="w-40">Sign Up</Button>
+        </div>
       </form>
 
     </div>
